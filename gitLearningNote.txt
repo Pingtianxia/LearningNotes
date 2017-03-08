@@ -1,0 +1,32 @@
+1.install git:<sudo apt-get install git>
+2.setting git :
+	<git config --global user.name "yf">
+	<git config --global user.email "wei.yang@yuneec.com">
+	a.tips:parameter --global means that all git reposity in this mechine will use the setting.
+3.<git init>command change the present directory to reposity.
+4.using code UTF-8 is suggested now that all language use the same code.(using Notepat++ replace the window default notepad.)
+5.<git add readme.txt>command add file into git reposity.
+6.<git commit -m "wrote a readme file">command submit file to the reposity.
+7.<git status> show the present status of the reposity.
+8.<git diff readme.txt> see the difference.
+9.<git log --pretty=oneline>command record the history operation.
+10.
+11.
+12.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4.

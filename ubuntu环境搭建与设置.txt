@@ -1,0 +1,58 @@
+安装好后
+------------------------------------------------------------------
+1.更新与升级：在终端下执行<sudo apt-get update>与<sudo apt-get upgrade>
+
+2.搜狗中文输入法安装：
+    a)安装fcitx：执行<sudo apt-get install fcitx>
+    b)安装搜狗拼音：如执行<sudo dpkg -i sogoupinyin_2.1.0.0082_amd64.deb>
+    c)终端输入<im-config>,跳出对话框,点击OK，接着一个对话框，点击Yes，你会看到下面的对话框。如果上面是fcitx，就不用管，直接关闭；如果不是，就修改上面的ibus为fcitx.点击OK即可。又会出现一个对话框，接着就是OK，最后重启电脑.
+    d)接着终端输入<fcitx-config-gtk3>,出现对话框.点击对话框左下角的（+）按钮，弹出另一个对话框如上图所示。然后，取消Only Show Current Language（很重要，否则不能找到刚安装过的搜狗输入法!）最后，在输入框中输入sogou，选中点击OK即可。
+
+3.有道词典的安装：
+    a)从官方下载Ubuntu版本的deb包：youdao-dict_1.1.0-0-ubuntu_amd64.deb
+    b)创建youdao-dict目录，把该deb包解压到youdao-dict目录：
+	<dpkg -X ./youdao-dict_1.1.0-0-ubuntu_amd64.deb  youdao-dict>
+    c)解压deb包中的control信息（包的依赖就写在这个文件里面）：
+	<dpkg -e ./youdao-dict_1.1.0-0-ubuntu_amd64.deb youdao-dict/DEBIAN>
+    d)编辑control文件，删除Depends里面的gstreamer0.10-plugins-ugly。
+    e)重新打包：
+	<dpkg-deb -b youdao-dict youdaobuild.deb>
+    f)安装重新打包的安装包
+	<dpkg -i youdaobuild.deb>
+
+4.安装vim.
+
+5.挂载分区
+    a)<sudo fdisk -l>
+    b)确定编码方式<echo $LANG>	
+    c)挂载<mount -t ntfs /dev/sda1 /mnt/C -o iocharset=utf8,umask=022>
+	其中U盘通常是vfat格式
+    d)卸载<umount /dev/sda1>
+	如果系统繁忙，使用<fuser -cu /dev/sda1>查询，并用<sudo kill -9 pid>关掉进程
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------esp分区window7的efi引导项修复----------------------------------
+你的uefi引导坏了，准确的说是你的gpt磁盘上的esp分区出了问题，，找个启动盘进pe吧，修复下引导
+引导修复步骤:
+一。挂载ESP分区。
+在diskgenius找到ESP分区(分区名上标有esp)，右键，分配盘符，确定，保存更改。然后把你的esp分区给格式化。
+ps。(如果你找不到ESP分区或者分区损坏就把这个分区删了，然后右键多出来的100m空闲空间-新建分区，分区类型选efi系统分区(EFI System partition),确定，保存应用)。
+二。创建ESP分区下启动文件
+在esp分区创建文件夹efi
+在efi下创建两个文件夹。boot,Microsoft
+在Microsoft文件夹下再创建boot文件夹。
+复制(你的windows所在分区)/windows/boot/efi/bootmgrfw.efi到(ESP)/efi/boot/下，更名为bootx64.efi
+在吧(你的windows所在分区)/windows/boot/efi下所有文件拷到(ESP)/efi/microsoft/boot下
+然后打开bootice，切换到bcd选项卡，新建bcd，保存到(esp)/efi/microsoft/boot下，文件名BCD，智能编辑模式，点新建启动项，新建windows7/vista启动项，启动磁盘选择你的电脑磁盘，分区选你系统所在分区，把启动文件改为/windows/system32/winload.efi(就是把原来的winload.exe改为winload.efi,不然你的uefi引导程序识别不了)，保存更改，重启，搞定

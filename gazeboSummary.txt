@@ -1,0 +1,6 @@
+1.gazebo environment variable configuration file: /usr/share/gazebo-{gazebo version}/setup.sh
+	adding<source /usr/share/gazebo/setup.sh>into ~/.bashrc or /etc/profile
+2.Q：[Err] [Plugin.hh:180] Failed to load plugin libCGO3Plugin.so:....
+	A:<cd workdirectory>;<export GAZEBO_PLUGIN_PATH='pwd':$GAZEBO_PLUGIN_PATH>
+
+3.
