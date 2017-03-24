@@ -2,7 +2,7 @@
 2.setting git :
 	<git config --global user.name "yf">
 	<git config --global user.email "wei.yang@yuneec.com">
-	a.tips:parameter --global means that all git reposity in this mechine will use the setting.
+	a tips:parameter --global means that all git reposity in this mechine will use the setting.
 3.<git init>command change the present directory to reposity.
 4.using code UTF-8 is suggested now that all language use the same code.(using Notepat++ replace the window default notepad.)
 5.<git add readme.txt>command add file into git reposity.
@@ -10,9 +10,15 @@
 7.<git status> show the present status of the reposity.
 8.<git diff readme.txt> see the difference.
 9.<git log --pretty=oneline>command record the history operation.
-10.
+10.<git push -u origin master>command push the local repository to remote repository.
 11.
 12.
+13.To synchronous remote branch to the local repository
+	One method:<git pull origin master>
+	another good way:
+		<git fetch origin master>
+		<git log -p master..origin/master>
+		<git merge origin/master>
 
 
 
