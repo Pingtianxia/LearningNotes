@@ -22,3 +22,4 @@
 	num1-le num2 	小于或等于	[ 3 -le $mynum ]
 	num1-gt num2 	大于	[ 3 -gt $mynum ]
 	num1-ge num2 	大于或等于	[ 3 -ge $mynum ]
+wowowo
