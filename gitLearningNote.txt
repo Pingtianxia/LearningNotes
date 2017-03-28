@@ -12,7 +12,7 @@
 9.<git log --pretty=oneline>command record the history operation.
 10.<git push -u origin master>command push the local repository to remote repository.
 11.
-12.
+12.<git show CommitID>command show the difference of CommitID.
 13.To synchronous remote branch to the local repository
 	One method:<git pull origin master>
 	another good way:
