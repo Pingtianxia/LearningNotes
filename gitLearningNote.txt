@@ -19,7 +19,7 @@
 		<git fetch origin master>
 		<git log -p master..origin/master>
 		<git merge origin/master>
-
+14.<git remote -v>show the remote repository url address.
 
 
 
