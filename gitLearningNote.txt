@@ -22,6 +22,7 @@
 14.<git remote -v>show the remote repository url address.
 15.<git branch>command show the branch of git repository.
 16.<git checkout branch-name>command switch to the new branch according to the branch name.
+17.<git remote add upstream https://github.com/user/newrepository.git>command create "upstream"(default is origin) point to new repository.
 
 
 
