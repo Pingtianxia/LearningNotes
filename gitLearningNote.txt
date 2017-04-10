@@ -25,7 +25,10 @@
 17.<git remote add upstream https://github.com/user/newrepository.git>command create "upstream"(default is origin) point to new repository.
 18.<git cherry-pick commitId>command can pick up a single commitId from different branch, then merge it to current branch, it is easy to repair the bug.
 19.<git config --global alias.co checkout>command can alias co for checkout.
-
+20.add general part of public repository to use for other project.
+	a.<git submodule add "repos URL" "PATH">command can add a submodule for current project, "repos URL" point to the submodule repository address and "PATH" means the position where the submodule be put.
+	b.To delete the submodule,firstly delete the configuration information of the ".gitmodules" file, then execute<git rm -cached>command.
+	c.<git submodule update --init --resursive>command can download the submodule for the current repository.
 
 
 
