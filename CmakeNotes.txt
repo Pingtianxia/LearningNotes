@@ -1,4 +1,12 @@
 
-The URL address of cmake tutorial: https://cmake.org/cmake-tutorial/
+#The URL address of cmake tutorial: https://cmake.org/cmake-tutorial/
 
 #Cmake instruction isn't case-sensitive,but arguments and variables match case.it's recommended all using uppercase instruction.
+
+#when we use Cmake to build gimbal project without the following instruction,we will get the error info:error: unrecognized command line option '-rdynamic',why???
+	set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
+	set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
+	
+#The common commands
+		
+
