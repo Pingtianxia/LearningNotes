@@ -8,5 +8,94 @@
 	set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
 	
 #The common commands
+	CMAKE_MINIMUM_REQUIRED(VERSION 3.0.0)
+	PROJECT(general_gimbal)
+	#设置版本号
+	SET(MAJOR_VERSION 1)
+	#设置编译工具
+	SET(CMAKE_C_COMPILER arm-none-eabi-gcc)
+	SET(CMAKE_CXX_COMPILER arm-none-eabi-g++)
+	SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
+	set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
+	#定义编译选项
+	SET(FLAGS "-mthumb -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -mfloat-abi=hard")
+	SET(CMAKE_C_FLAGS
+		${FLAGS}
+	)
+	SET(CMAKE_CXX_FLAGS
+		${FLAGS}
+	)
+
+	#编译方式
+	IF(CMAKE_BUILD_TYPE MATCHES Debug)
+		MESSAGE("build type is debug")
+		ADD_DEFINITIONS(-DDEBUG)
+	ENDIF()
+	#添加链接选项
+	SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${FLAGS} -T ${CMAKE_SOURCE_DIR}/stm32Lib/StartUp/STM32_FLASH.ld"
+	)
+	#添加宏定义:
+	ADD_DEFINITIONS(
+		-D__FPU_PRESENT=1 
+		-DARM_MATH_CM4
+
+		-DHSE_VALUE=16000000
+		-DSTM32F37X
+		-DUSE_STDPERIPH_DRIVER
+
+		-DCGO3
+
+		-O0
+		-std=c99
+	)
+	#添加头文件目录
+	INCLUDE_DIRECTORIES(
+		.
+		arm
+		stm32Lib/StartUp
+
+		application/APP
+
+		driver/Motor_Driver
+	)
+	#设置启动文件编译方式
+	SET_PROPERTY(
+		SOURCE 	stm32Lib/StartUp/startup_stm32f37x.s
+		PROPERTY LANGUAGE C
+	)
+	#编译源文件
+	ADD_EXECUTABLE(
+		${PROJECT_NAME}.elf
+		stm32Lib/StartUp/system_stm32f37x.c
+		stm32Lib/StartUp/startup_stm32f37x.s
+		stm32Lib/stdlib/src/stm32f37x_adc.c
+
+		application/APP/delay.c
+		application/APP/main.c
+	
+		driver/MCU_Driver/ADC_DMA.c
+		driver/MCU_Driver/EncodeDriver.c
+		driver/Motor_Driver/SVPWM_conf.c
+		driver/Peripheral_driver/MPU6050.c
+	)
+	#链接库
+	TARGET_LINK_LIBRARIES(
+		${PROJECT_NAME}.elf
+	
+	#	m
+	#	gcc
+	#	nosys
+		c
+		rdimon
+	)
+	#获取系统当前时间
+	STRING(TIMESTAMP DATE "%Y_%m_%d")
+	#生成烧录文件
+	ADD_CUSTOM_COMMAND(OUTPUT ${PROJECT_NAME}.bin 
+		COMMAND arm-none-eabi-objcopy -O binary ${PROJECT_NAME}.elf ${PROJECT_NAME}_V${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}_${DATE}.bin DEPENDS ${PROJECT_NAME}.elf
+	)
+
+	#更新目标文件
+	ADD_CUSTOM_TARGET(new_${PROJECT_NAME} ALL DEPENDS ${PROJECT_NAME}.bin)
 		
 
