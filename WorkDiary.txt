@@ -1,2 +1,4 @@
 0413:Learning Mavlink protocol
 0414:Learning git branching model:http://nvie.com/posts/a-successful-git-branching-model/#summary
+0417:Study the stm32f373 to use svpwm controlling the motor.
+	Q:when using bootloader the program runaway because of interruption.
