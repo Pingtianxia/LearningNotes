@@ -29,6 +29,44 @@
 	其中U盘通常是vfat格式
     d)卸载<umount /dev/sda1>
 	如果系统繁忙，使用<fuser -cu /dev/sda1>查询，并用<sudo kill -9 pid>关掉进程
+6.文件和函数注释模板
+/*********************************************************************************
+  @Copyright(C),2017-, YUNEEC Co.,Ltd. All rights reserved.
+  
+  @FileName		: 主程序
+  @Author		: 杨卫
+  @Version		: V0.1.1
+  @Date			: 2017/04/18
+  @Description	:
+  
+  
+ 
+  @Function List:
+     1.
+     2.
+  @History		: 
+     1.Date: none
+       Author: none
+       Modification: none
+  @verbatim 
+  @endverbatim
+  
+  @attention
+  @endattention
+  
+**********************************************************************************/
+
+/*********************************************************************************
+	@name	:
+	@brief	: 
+	@note	:   
+	@param	:  
+			@arg
+
+	@param	:
+	
+	@retval	: None
+**********************************************************************************/
 
     
 
