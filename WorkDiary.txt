@@ -3,3 +3,4 @@
 0417:Study the stm32f373 to use svpwm controlling the motor.
 	Q:when using bootloader the program runaway because of interruption.
 	A:because the bootloader set TIM13 interruption, it must be reset by soft otherwise it is always interrupted.
+0418:Learning how to use stm32 TIM to generate PWM pulse.
