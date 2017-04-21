@@ -37,6 +37,7 @@
 	a.<git fetch origin master>
 	b.<git rebase origin/master>
 	c.<git push> 
+23.<git stash>command can backup current workspace to git stack. <git stash pop> command can read recent saved content which is saved in git stack. <git stash list>command can show all backup in the git stack. <git stash clear>commant clear up all git stack.
 
 #.A good reference structure of git project URL:http://nvie.com/posts/a-successful-git-branching-model/
 
