@@ -20,7 +20,7 @@
     f)安装重新打包的安装包
 	<dpkg -i youdaobuild.deb>
 
-4.安装vim.
+4.安装vim, git, gitkraken, vscode, 
 
 5.挂载分区
     a)<sudo fdisk -l>
