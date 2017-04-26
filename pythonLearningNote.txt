@@ -1,1 +1,4 @@
 >.pip:a modern general management tool for Python package.
+>.python is script language and it will be executed line-by-line.don't have the unified entrance.
+>.how to understand statement<if __name__ == '__main__'> URL: http://blog.konghy.cn/2017/04/24/python-entry-program/
+	A:if the module is executed directly and its code block will be operated, or if the module is imported and the following code block will don't be executed.
