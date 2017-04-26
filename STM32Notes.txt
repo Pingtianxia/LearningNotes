@@ -9,5 +9,8 @@
 	有效 无效 CPU可以读写，禁止调试和非法访问，页0~3为写保护。 
 	无效 有效 CPU可读，允许调试和非法访问。 
 	无效 无效 CPU可以读写，允许调试和非法访问。
+>.#define MMIO16(addr) (*(volatile uint16_t *)(addr)) //语句理解：
+	定义一个对地址为addr的16位操作函数，其中(volatile uint16_t *)(addr)是将addr强制转换成uint16_t型的指针。(*(volatile uint16_t *)(addr))表示对地址为addr的寄存器或flash进行读写操作。
+
 
 

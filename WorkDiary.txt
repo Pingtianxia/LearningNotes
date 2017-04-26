@@ -9,4 +9,10 @@
 	Q:the intrinsic bootloader has "__attribute__((at(0x40001000)))"asm syntax,that will lead to some error.
 	A:because of the difference in Keil and GCC's ASM syntax.you can use GUN ld write the variable to fixed address or you can change the statement to:
 		int *var = (int*)0x40001000;
-		*var = 4;
+		*var = 4;  
+	or:
+		#define MMIO16(addr)		(*(volatile uint16_t *)(addr))
+		#define VAR 0x40001000
+		MMIO16(VAR) = 100;
+0426:adding stlink burning tool in the makefile.
+	1.it is forbidden to write statement out of program function.
