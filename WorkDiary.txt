@@ -27,3 +27,6 @@
 
 0426:adding stlink burning tool in the makefile.
 	1.it is forbidden to write statement out of program function.
+0427:To store the variable to fixed flash.
+	1. using at(0x...) attribute will set the sector to zero in the following of the variable.
+	2. using flash program function just set 1 to 0 in the address(cann't 0 to 1), so if the address isn't 0xffffffff, it must be erased firstly.
