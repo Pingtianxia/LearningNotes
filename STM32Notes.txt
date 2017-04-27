@@ -11,6 +11,10 @@
 	无效 无效 CPU可以读写，允许调试和非法访问。
 >.#define MMIO16(addr) (*(volatile uint16_t *)(addr)) //语句理解：
 	定义一个对地址为addr的16位操作函数，其中(volatile uint16_t *)(addr)是将addr强制转换成uint16_t型的指针。(*(volatile uint16_t *)(addr))表示对地址为addr的寄存器或flash进行读写操作。
+>.stm32对flash进行读写保护后，用stlink utility在Target->Option Bytes里面改变level1到level0，擦除保护扇区，之后烧录读写保护程序，一直可以读写；如果改成level1则提示处于保护状态，怎么解决？为什么？
+	A:因为程序里面的读写保护语句没用被执行，所以一直可以读写。
+>.RDP读保护选项字节：位[15:8]
+	0xAA: Level0, 无保护； 0x~~: Level1, 存储器读保护，调试功能受限； 0xCC: Level2,芯片保护（禁止调试和从RAM启动，板砖）
 
 
 

@@ -5,6 +5,9 @@
   - means ignore the exit status of the command that is executed (normally, a non-zero exit status would stop that part of the build).(globally via the -s flag or --ignore-errors)
   + means 'execute this command under <make -n> (when commands are not normally executed). the + notation is a generalization of the mechanism whereby a command containing ${MAKE} or $(MAKE) is executed under <make -n>
 
-##the reason of error: "*** missing separator.  Stop."
-	A:the most common cause for that error is that lines are indented with whitespaces instead of tab characters.
+## the reason of error: "*** missing separator.  Stop."
+	A: the most common cause for that error is that lines are indented with whitespaces instead of tab characters.
+
+## what is the meaning of the following linker script statement: <KEEP(*(.myBufSection))>
+	A: keep my variable in the .myBufSection even if not reference.
 
