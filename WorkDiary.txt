@@ -34,3 +34,4 @@
 	A:the way is giving the variable "section" attribute then we need add relevant section in the linker.script.
 	N:To eject the stlink/jlink securely, first communication should be interruptted then main board should power off, finally we can eject the stlink/jlink device securely.
 0514£ºTo write the bootloader and gimbalsoft LED warning function when entering undefined or abnormal interruption. Write the taskHeartBeat function to tail after task operation.
+0707£ºacceleration of accelerating curve in the gimbal code just have half of the setting when the curve is up, but in the down process it is normal.why? 
